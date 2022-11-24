@@ -1,11 +1,12 @@
-import useTitle from "./hooks/useTitle"
+import useClick from "./hooks/useClick"
 
 
 const App = () => {
-  const setTitle = useTitle('Loading...')
+  const logHello = () => console.log('hello, world')
+  const titleRef = useClick<HTMLHeadingElement>(logHello)
   return (
     <div>
-      <button onClick={() => setTitle('Home')} >Title Change</button>
+      <h1 ref={titleRef} >Click me</h1>
     </div>
   )
 }
