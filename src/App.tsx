@@ -1,12 +1,13 @@
-import useClick from "./hooks/useClick"
+import useConfirm from "./hooks/useConfirm"
 
 
 const App = () => {
-  const logHello = () => console.log('hello, world')
-  const titleRef = useClick<HTMLHeadingElement>(logHello)
+  const onDelete = () => console.log('delete docs')
+  const onCancle = () => console.log('cancle')
+  const onConfirm = useConfirm('Are you sure?', onDelete, onCancle)
   return (
     <div>
-      <h1 ref={titleRef} >Click me</h1>
+      <button onClick={onConfirm}>Delete Docs</button>
     </div>
   )
 }
