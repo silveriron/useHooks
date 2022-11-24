@@ -1,13 +1,14 @@
-import usePreventLeave from "./hooks/usePreventLeave"
-
+import useBeforeLeave from "./hooks/useBeforeLeave"
 
 const App = () => {
-  const [enablePrevent, disablePrevent] = usePreventLeave()
-
+  const event = () => {
+    alert('Are you sure?')
+  }
+  
+  useBeforeLeave(event)
   return (
     <div>
-      <button onClick={enablePrevent}>Enable</button>
-      <button onClick={disablePrevent}>Disable</button>
+      <h1>Hello, World</h1>
     </div>
   )
 }
