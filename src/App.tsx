@@ -1,13 +1,13 @@
-import useConfirm from "./hooks/useConfirm"
+import usePreventLeave from "./hooks/usePreventLeave"
 
 
 const App = () => {
-  const onDelete = () => console.log('delete docs')
-  const onCancle = () => console.log('cancle')
-  const onConfirm = useConfirm('Are you sure?', onDelete, onCancle)
+  const [enablePrevent, disablePrevent] = usePreventLeave()
+
   return (
     <div>
-      <button onClick={onConfirm}>Delete Docs</button>
+      <button onClick={enablePrevent}>Enable</button>
+      <button onClick={disablePrevent}>Disable</button>
     </div>
   )
 }
