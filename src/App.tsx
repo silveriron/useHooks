@@ -1,14 +1,11 @@
-import useBeforeLeave from "./hooks/useBeforeLeave"
+import useFadeIn from "./hooks/useFadeIn"
 
 const App = () => {
-  const event = () => {
-    alert('Are you sure?')
-  }
-  
-  useBeforeLeave(event)
+  const fade = useFadeIn<HTMLHeadingElement>(3)
+
   return (
     <div>
-      <h1>Hello, World</h1>
+      <h1 {...fade} >Hello, World</h1>
     </div>
   )
 }
