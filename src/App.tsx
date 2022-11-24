@@ -1,7 +1,7 @@
 import useInput from "./hooks/useInput"
 
 const App = () => {
-  const {value: name, onChange: nameHandler } = useInput('Guest')
+  const [name, nameHandler] = useInput('Guest')
   return (
     <div>
       <input type="text" value={name} onChange={nameHandler} />
