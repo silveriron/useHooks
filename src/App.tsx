@@ -1,26 +1,11 @@
-import useTaps from "./hooks/useTaps"
+import useTitle from "./hooks/useTitle"
 
-const contents = [
-  {
-    name: 'Button One',
-    content: 'this is category One',
-  },
-  {
-    name: 'Button Two',
-    content: 'this is category Two',
-  },
-  {
-    name: 'Button Three',
-    content: 'this is category Three',
-  },
-]
 
 const App = () => {
-  const [content, setIndex] = useTaps(0, contents)
+  const setTitle = useTitle('Loading...')
   return (
     <div>
-      {contents.map((data, index) => <button key={index} onClick={() => setIndex(index)}>{data.name}</button>)}
-      <p>{content.content}</p>
+      <button onClick={() => setTitle('Home')} >Title Change</button>
     </div>
   )
 }
