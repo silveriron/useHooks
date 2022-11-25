@@ -1,11 +1,16 @@
-import useFadeIn from "./hooks/useFadeIn"
+import useNetwork from "./hooks/useNetwork"
 
 const App = () => {
-  const fade = useFadeIn<HTMLHeadingElement>(3)
+
+  const checkNetwork = (status:boolean) => {
+    console.log(status ? 'online' : 'offline')
+  }
+
+  const status = useNetwork(checkNetwork)
 
   return (
     <div>
-      <h1 {...fade} >Hello, World</h1>
+      <h1>{status? "online" : "offline"}</h1>
     </div>
   )
 }
