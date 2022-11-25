@@ -1,58 +1,17 @@
-import useScroll from "./hooks/useScroll"
-
-const colorList = [
-  {
-    point: 0,
-    color: 'red'
-  },
-  {
-    point: 500,
-    color: 'orange'
-  },
-  {
-    point: 1000,
-    color: 'yellow'
-  },
-  {
-    point: 1500,
-    color: 'green'
-  },
-  {
-    point: 2000,
-    color: 'blue'
-  },
-  {
-    point: 2500,
-    color: 'indigo'
-  },
-  {
-    point: 3000,
-    color: 'purple'
-  },
-
-]
+import useFullScreen from "./hooks/useFullScreen";
 
 const App = () => {
-  const {y} = useScroll()
-
-  const colorPicker = (point:number) => {
-    let color = 'red'
-    colorList.forEach((data) => {
-      if (data.point <= point) {
-        color = data.color
-        
-      }
-    })
-    return color
-  }
-
-  const color = colorPicker(y)
+  const [ref, onFullScreen, exitFullScreen] = useFullScreen<HTMLDivElement>()
 
   return (
-    <div style={{height: '1000vh'}}>
-      <h1 style={{position: 'fixed', color: color}}>Hello, World</h1>
+    <div>
+      <div ref={ref} >
+        <img style={{width: 500}} alt='dog and cat' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1E1YvxZ9ca1o7MmeB6P0PdVfCeBLB4tGAdn38p_WmYw&s"/>
+        <button onClick={exitFullScreen}>Exit Full Screen</button>
+      </div>
+      <button onClick={onFullScreen}>Full Screen</button>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
